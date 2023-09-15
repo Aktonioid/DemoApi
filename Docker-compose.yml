@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongocont
+    networks:
+      - backend
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=Admin
+      - MONGO_INITDB_ROOT_PASSWORD=Flvbys
+    ports:
+      - "27017:27017"
+    command: mongod --port 27017
+    volumes:
+      - ./data:/data/db
+    
+
+  webapp:
+    image: aktonioid/webapp:api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+       DB_HOST: mongodb
+       PORT: 7213
+       MONGO_INITDB_ROOT_USERNAME: Admin
+       MONGO_INITDB_ROOT_PASSWORD: Flvby
+
+    depends_on:
+      - mongodb
+    networks:
+      - frontend
+      - backend
+    ports: 
+      - "7213:7213"
+    links:
+      - mongodb
+      
+networks:
+  frontend:
+    driver: bridge
+
+  backend:
+    driver: bridge
