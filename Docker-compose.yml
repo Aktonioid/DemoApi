@@ -17,7 +17,7 @@ services:
     
 
   webapp:
-    image: webapp
+    image: aktonioid/webapp:api
     build:
       context: .
       dockerfile: Dockerfile
