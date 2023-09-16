@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile
     environment:
        DB_HOST: mongodb
-       PORT: 7213
+       PORT: ${PORT}
        MONGO_INITDB_ROOT_USERNAME: ${DB_LOGIN}
        MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
 
