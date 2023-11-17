@@ -35,19 +35,37 @@
         List<ScheduleEvent> Body - предметы на этот день 
 
   ###ShcheduleEvent - один урок
-        Guid Id 
-        int FromTime
-        int ToTime 
-        string Name 
-        ScheduleEventKind Kind
+        Guid Id - id
+        int FromTime - время начала урока
+        int ToTime - время конца урока
+        string Name - название урока
+        ScheduleEventKind Kind - тип урока
 
   ###ScheduleEventKind - типы уроков в расписании
+        Lesson - урок
+        Activity - активность(Физра, труд)
 
   ###TaskElsement - модель одного задания
+        Guid Id - id
+        string Class_Name - название задания
+        string Body - Само задание
+        DateTime UntilDate - до какого числа надо сделать   
 
   ###TaskModel -дополнительные задания
-
+        Guid TaskId - id
+        string Title  - название предмета по которому назначено задание
+        List<TaskElement> Tasks - список заданий 
+        DateTime CreatedAt - когда задания были добавлены
+        
   ### User - пользователи
+        Guid Id - id
+        string Login - логин 
+        string Password -пароль
+        Kind Kind -уровень доступа
+        string first_name  -имя
+        string last_Name -фамилия
 
   ###Kind - уровни доступа пользователей
+        User - рядовой пользователь
+        Admin - админ
     
