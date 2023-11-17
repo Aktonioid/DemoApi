@@ -3,7 +3,7 @@ using models;
 
 namespace models
 {
-    public record TaskSynb 
+    public record TaskModel 
     {
         [BsonId]
         public Guid TaskId { get; set; }

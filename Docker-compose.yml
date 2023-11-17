@@ -7,8 +7,8 @@ services:
       - backend
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=Admin
-      - MONGO_INITDB_ROOT_PASSWORD=Flvbys
+      - MONGO_INITDB_ROOT_USERNAME=${DB_LOGIN}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
       - "27017:27017"
     command: mongod --port 27017
@@ -24,8 +24,8 @@ services:
     environment:
        DB_HOST: mongodb
        PORT: 7213
-       MONGO_INITDB_ROOT_USERNAME: Admin
-       MONGO_INITDB_ROOT_PASSWORD: Flvby
+       MONGO_INITDB_ROOT_USERNAME: ${DB_LOGIN}
+       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
 
     depends_on:
       - mongodb

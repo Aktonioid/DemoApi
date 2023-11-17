@@ -2,7 +2,7 @@
 
 namespace DemoApi.Dto
 {
-    public record TaskDto: TaskSynb
+    public record TaskDto: TaskModel
     {
     }
 }

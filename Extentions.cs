@@ -65,7 +65,7 @@ namespace DemoApi
                 Url= mat.Url
             };
         }
-        public static TaskDto AsDto(this TaskSynb task)
+        public static TaskDto AsDto(this TaskModel task)
         {
             return new TaskDto
             {

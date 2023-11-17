@@ -14,7 +14,7 @@ namespace DemoApi.Repositories
 
         public async Task<Boolean> CreateElementAsync(Guid Id, TaskElementDto elem)
         {
-            var exhistTask = await DB.FindByIdAsync<TaskSynb>(Id);
+            var exhistTask = await DB.FindByIdAsync<TaskModel>(Id);
             if(exhistTask == null)
             {
                 return false;
@@ -33,13 +33,13 @@ namespace DemoApi.Repositories
 
             exhistTask = exhistTask with { Tasks = list };
             
-            await DB.UpdateAsync<TaskSynb>(exhistTask,Id);
+            await DB.UpdateAsync<TaskModel>(exhistTask,Id);
             return true;
         }
 
         public async Task<TaskDto> CreateTaskAsync(TaskDto task)
         {
-            TaskSynb Newtask = new() 
+            TaskModel Newtask = new() 
             {
                 CreatedAt = DateTime.Now,
                 TaskId = Guid.NewGuid(),
@@ -47,19 +47,19 @@ namespace DemoApi.Repositories
                 Title = task.Title,
             };
            
-            await DB.CreateAsync<TaskSynb>(task);
+            await DB.CreateAsync<TaskModel>(Newtask);
            
             return Newtask.AsDto();
         }
 
         public async Task DeleteTaskAsync(Guid Id)
         {
-            await DB.DeleteAsync<TaskSynb>(Id);
+            await DB.DeleteAsync<TaskModel>(Id);
         }
 
         public async Task DeleteTaskElementAsync(Guid id, Guid ElId)
         {
-            var exhistTask = await DB.FindByIdAsync<TaskSynb>(id);
+            var exhistTask = await DB.FindByIdAsync<TaskModel>(id);
             var list = exhistTask.Tasks;
            
             for (int i = 0; i<list.Count; i++)
@@ -72,26 +72,26 @@ namespace DemoApi.Repositories
            
             exhistTask = exhistTask with { Tasks = list };
            
-            await DB.UpdateAsync<TaskSynb>(exhistTask, id);
+            await DB.UpdateAsync<TaskModel>(exhistTask, id);
         }
 
         public async Task<TaskDto> GetTaskByIdAsync(Guid taskid)
         {
-            var tasks =await DB.FindByIdAsync<TaskSynb>(taskid) ;
+            var tasks =await DB.FindByIdAsync<TaskModel>(taskid) ;
             
             return tasks.AsDto();
         }
 
         public async Task<IEnumerable<TaskDto>> GetTasksAsync()
         {
-            var Tasks = await DB.FindAsync<TaskSynb>();
+            var Tasks = await DB.FindAsync<TaskModel>();
             
             return Tasks.Select(Task => Task.AsDto());
         }
 
         public async Task UpdateTaskElementAsync(Guid Id, Guid ElemId,TaskElementDto task)
         {
-            var exhist = await DB.FindByIdAsync<TaskSynb>(Id);
+            var exhist = await DB.FindByIdAsync<TaskModel>(Id);
             var list = exhist.Tasks;
             
             for(int i = 0; i<list.Count; i++)
@@ -112,7 +112,7 @@ namespace DemoApi.Repositories
             
             exhist = exhist with { Tasks = list};
             
-            await DB.UpdateAsync<TaskSynb>(exhist, Id);
+            await DB.UpdateAsync<TaskModel>(exhist, Id);
         }
     }
 }

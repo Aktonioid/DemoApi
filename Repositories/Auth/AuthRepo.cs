@@ -23,8 +23,6 @@ namespace DemoApi.Repositories.Logi
 
         public async Task<UserDto> Authenticate(UserLogin userLogin)
         {
-           // Console.WriteLine("Authenticate Jwt");
-
             var user = await client.FindByLoginAsync<User>(userLogin.Login);
 
             var pasw = userLogin.Password;

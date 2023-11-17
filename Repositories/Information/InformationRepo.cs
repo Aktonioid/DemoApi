@@ -12,7 +12,6 @@ namespace DemoApi.Repositories
         private readonly Mongo DB = new("InfromationBlock");
         public async Task<InformationBlockDto> CreateInformationAsync(InformationBlockDto info)
         {
-            //var collection = sett.db.GetCollection<InformationBlock>(Table);
             InformationBlock Inform = new()
             {
                 Body = info.Body,
