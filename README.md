@@ -7,18 +7,25 @@
 Добавление, редактирование и удаление расписания класса, лента новостей,дополнительных материалов рекомендуемых к изучению и пользователей происходит в админской панели, вынесенной в отдельный контроллер
 
   ## модели
-  ###informationBLock
+  ###informationBLock - информация
 
-  ###MaterialsFile
+  ###MaterialsFile - отдельный файл
 
-  ###MaterialsGroup
+  ###MaterialsGroup - группы файлов(По типу "Русский", "Математика")
 
-  ### News
+  ### News - новости 
 
-  ###Schedule
+  ###Schedule - все расписание 
 
-  ###ShcheduleEvent
+  ###ShcheduleEvent - один урок
 
-  ###ScheduleEventKind
+  ###ScheduleEventKind - типы уроков в расписании
 
-  ###TaskElsement
+  ###TaskElsement - модель одного задания
+
+  ###TaskModel -дополнительные задания
+
+  ### User - пользователи
+
+  ###Kind - уровни доступа пользователей
+    
