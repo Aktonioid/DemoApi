@@ -24,8 +24,8 @@ services:
     environment:
        DB_HOST: mongodb
        PORT: 7213
-       MONGO_INITDB_ROOT_USERNAME: ${DB_LOGIN}
-       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+       MONGO_INITDB_ROOT_USERNAME: Admin
+       MONGO_INITDB_ROOT_PASSWORD: Flvby
 
     depends_on:
       - mongodb
